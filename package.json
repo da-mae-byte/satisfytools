@@ -1,0 +1,118 @@
+{
+  "name": "satisfytools",
+  "displayName": "SatisfyTools",
+  "publisher": "MasakiMaeda",
+  "description": "",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "satisfytools.numbering",
+        "title": "ナンバリング"
+      },
+      {
+        "command": "satisfytools.increase",
+        "title": "+1"
+      },
+      {
+        "command": "satisfytools.decrease",
+        "title": "-1"
+      },
+      {
+        "when": "editorHasSelection",
+        "command": "satisfytools.search",
+        "title": "Googleで検索"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus",
+          "command": "satisfytools.numbering",
+          "group": "navigation"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "satisfytools.search",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "satisfytools.numbering",
+        "key": "ctrl+alt+n",
+        "mac": "cmd+alt+n",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "satisfytools.increase",
+        "key": "ctrl+alt+numpad_add",
+        "mac": "cmd+alt+numpad_add",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "satisfytools.decrease",
+        "key": "ctrl+alt+-",
+        "mac": "cmd+alt+-",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Satisfy Tools",
+      "properties": {
+        "satisfytools.numbering.padding": {
+          "type": "boolean",
+          "default": true,
+          "description": "パディングする"
+        },
+        "satisfytools.numbering.paddingCharcter": {
+          "type": "string",
+          "enum": [
+            "空白",
+            "0"
+          ],
+          "default": "空白",
+          "description": "パディングに使用する文字"
+        },
+        "satisfytools.search.searchEngine": {
+          "type": "string",
+          "enum": [
+            "Google",
+            "Bing",
+            "Yahoo"
+          ],
+          "default": "Google",
+          "description": "検索エンジン"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.54.0",
+    "@vscode/test-electron": "^2.2.3",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "vsce": "^2.15.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "commands.numbering.title": "ナンバリング",
+    "commands.increase.title": "加算",
+    "commands.decrease.title": "減算",
+    "commands.search.title": "Webで検索",
+    "configuration.numbering.padding.description": "パディングする。",
+    "configuration.numbering.paddingCharcter.enum.blank": "空白",
+    "configuration.numbering.paddingCharcter.default": "空白",
+    "configuration.numbering.paddingCharcter.description": "パディングに使用する文字。",
+    "configuration.search.searchEngine.description": "検索エンジン。"
+}

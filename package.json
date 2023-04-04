@@ -1,123 +1,124 @@
 {
-  "name": "satisfytools",
-  "displayName": "Satisfy Tools",
-  "publisher": "MasakiMaeda",
-  "description": "",
-  "version": "0.0.2",
-  "engines": {
-    "vscode": "^1.54.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "satisfytools.numbering",
-        "title": "ナンバリング"
-      },
-      {
-        "command": "satisfytools.increase",
-        "title": "+1"
-      },
-      {
-        "command": "satisfytools.decrease",
-        "title": "-1"
-      },
-      {
-        "when": "editorHasSelection",
-        "command": "satisfytools.search",
-        "title": "Googleで検索"
-      }
-    ],
-    "menus": {
-      "editor/context": [
-        {
-          "when": "editorTextFocus",
-          "command": "satisfytools.numbering",
-          "group": "navigation"
-        },
-        {
-          "when": "editorHasSelection",
-          "command": "satisfytools.search",
-          "group": "navigation"
-        }
-      ]
+    "name": "satisfytools",
+    "displayName": "Satisfy Tools",
+    "publisher": "MasakiMaeda",
+    "description": "",
+    "icon": "docs/logo.png",
+    "version": "0.0.4",
+    "engines": {
+        "vscode": "^1.54.0"
     },
-    "keybindings": [
-      {
-        "command": "satisfytools.numbering",
-        "key": "ctrl+alt+n",
-        "mac": "cmd+alt+n",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "satisfytools.increase",
-        "key": "ctrl+alt+numpad_add",
-        "mac": "cmd+alt+numpad_add",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "satisfytools.decrease",
-        "key": "ctrl+alt+numpad_subtract",
-        "mac": "cmd+alt+numpad_subtract",
-        "when": "editorTextFocus"
-      }
+    "categories": [
+        "Other"
     ],
-    "configuration": {
-      "title": "Satisfy Tools",
-      "properties": {
-        "satisfytools.numbering.padding": {
-          "type": "boolean",
-          "default": true,
-          "description": "パディングする"
+    "activationEvents": [],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "satisfytools.numbering",
+                "title": "%commands.numbering.title%"
+            },
+            {
+                "command": "satisfytools.increase",
+                "title": "%commands.increase.title%"
+            },
+            {
+                "command": "satisfytools.decrease",
+                "title": "%commands.decrease.title%"
+            },
+            {
+                "when": "editorHasSelection",
+                "command": "satisfytools.search",
+                "title": "%commands.search.title%"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "editorTextFocus",
+                    "command": "satisfytools.numbering",
+                    "group": "navigation"
+                },
+                {
+                    "when": "editorHasSelection",
+                    "command": "satisfytools.search",
+                    "group": "navigation"
+                }
+            ]
         },
-        "satisfytools.numbering.paddingCharcter": {
-          "type": "string",
-          "enum": [
-            "空白",
-            "0"
-          ],
-          "default": "空白",
-          "description": "パディングに使用する文字"
-        },
-        "satisfytools.search.searchEngine": {
-          "type": "string",
-          "enum": [
-            "Google",
-            "Bing",
-            "Yahoo"
-          ],
-          "default": "Google",
-          "description": "検索エンジン"
+        "keybindings": [
+            {
+                "command": "satisfytools.numbering",
+                "key": "ctrl+alt+n",
+                "mac": "cmd+alt+n",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "satisfytools.increase",
+                "key": "ctrl+alt+numpad_add",
+                "mac": "cmd+alt+numpad_add",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "satisfytools.decrease",
+                "key": "ctrl+alt+numpad_subtract",
+                "mac": "cmd+alt+numpad_subtract",
+                "when": "editorTextFocus"
+            }
+        ],
+        "configuration": {
+            "title": "Satisfy Tools",
+            "properties": {
+                "satisfytools.numbering.padding": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "%configuration.numbering.padding.description%"
+                },
+                "satisfytools.numbering.paddingCharcter": {
+                    "type": "string",
+                    "enum": [
+                        "%configuration.numbering.paddingCharcter.enum.blank%",
+                        "0"
+                    ],
+                    "default": "%configuration.numbering.paddingCharcter.default%",
+                    "description": "%configuration.numbering.paddingCharcter.description%"
+                },
+                "satisfytools.search.searchEngine": {
+                    "type": "string",
+                    "enum": [
+                        "Google",
+                        "Bing",
+                        "Yahoo"
+                    ],
+                    "default": "Google",
+                    "description": "%configuration.search.searchEngine.description%"
+                }
+            }
         }
-      }
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "16.x",
+        "@types/vscode": "^1.54.0",
+        "@vscode/test-electron": "^2.2.3",
+        "eslint": "^8.34.0",
+        "glob": "^8.1.0",
+        "mocha": "^10.2.0",
+        "typescript": "^4.9.5"
+    },
+    "dependencies": {
+        "vsce": "^2.15.0"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/da-mae-byte/satisfytools"
     }
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.54.0",
-    "@vscode/test-electron": "^2.2.3",
-    "eslint": "^8.34.0",
-    "glob": "^8.1.0",
-    "mocha": "^10.2.0",
-    "typescript": "^4.9.5"
-  },
-  "dependencies": {
-    "vsce": "^2.15.0"
-  },
-  "license": "SEE LICENSE IN LICENSE",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/da-mae-byte/satisfytools"
-  }
 }

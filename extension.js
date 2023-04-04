@@ -18,7 +18,7 @@ function activate(context) {
 			// 設定を取得
 			let conf = vscode.workspace.getConfiguration("satisfytools").get("numbering");
 			let padding_char = conf["paddingCharcter"];
-			if (padding_char == "空白") {
+			if (padding_char == "空白" || padding_char == "blank") {
 				padding_char = " ";
 			}
 

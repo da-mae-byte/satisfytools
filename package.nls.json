@@ -1,0 +1,11 @@
+{
+    "commands.numbering.title": "Numbering",
+    "commands.increase.title": "Increase",
+    "commands.decrease.title": "Decrease",
+    "commands.search.title": "Search the web",
+    "configuration.numbering.padding.description": "Whether to pad.",
+    "configuration.numbering.paddingCharcter.enum.blank": "blank",
+    "configuration.numbering.paddingCharcter.default": "blank",
+    "configuration.numbering.paddingCharcter.description": "Pad character.",
+    "configuration.search.searchEngine.description": "Search engine."
+}
